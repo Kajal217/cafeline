@@ -53,7 +53,7 @@ def get_message(message):
         elif "location" in message or "where" in message:
             return ("We are located on the downtown mall in Charlottesville, VA.")
         else:
-            return ("Someone will be in touch soon! Thanks for your interest in Cafeline")
+            return ("One will be in touch soon! Thanks for your interest in Cafeline")
 
 def get_nontext_message():
     sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
