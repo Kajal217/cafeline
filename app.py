@@ -57,7 +57,7 @@ def get_message(message):
         elif "where" in message:
             return ("We are located on the downtown mall in Charlottesville, VA.")
         else:
-            return ("Someone will be in touch soon! Thanks for your interest in Cafeline")
+            return ("Someone will be in touch soon! Thanks for your interest in Cafeline" + message)
 
 
 
