@@ -1,0 +1,11 @@
+aj = input("Type an adjective ")
+person = input ("Type a noun (person) ")
+place = input ("Type a noun (place) ")
+verb = input ("Type a verb in past tense ")
+verb2= input("Type another verb in past tense ")
+aj2 = input ("Type another adjective ")
+
+print ("Long ago in the " + aj + " lands of the far far west, there lived a " + person + " that posessed great power.")
+print ("Though " + person + " obtained great power, what he/she really wish to have was control over all of "+ place + " which was no easy task.")
+print (person + verb + " and " + verb2 + "  but there was no luck in acquriging " + place + ".")
+print("Because legend had it, that to acquire control of " + place + " a person needed to be greatly " + aj2)
