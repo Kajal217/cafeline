@@ -4,8 +4,8 @@ from flask import Flask, request
 from pymessenger.bot import Bot
 
 app = Flask(__name__)
-ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+ACCESS_TOKEN = "EAAaLClAZCuY8BAHbQV0mRbwnZBBfoZBCgBNbFqxMpZAN2A6xHdckCHZAZCI7fqykLZBydTEXbgcJlZCTntxNpycWIIGe9zeGZAFoR2JmUc5Ta6CKZCQrsEufX31loJqyiPYGvGR6e7teXDBiN7wnl5WQR1HKRLK0my8YEpWQFr8knceN5tyLomNxAb"
+VERIFY_TOKEN = "THISIS217REALLYHARDtothink217OFBECAUSEIDONTREALLY217GETwhatIam217doInG"
 bot = Bot(ACCESS_TOKEN)
 
 
@@ -28,7 +28,7 @@ def receive_message():
                     # Facebook Messenger ID for user so we know where to send response back to
                     recipient_id = message['sender']['id']
                     if message['message'].get('text'):
-                        response_sent_text = get_message(message.get('message'))
+                        response_sent_text = get_message(message['message'].get('text'))
                         send_message(recipient_id, response_sent_text)
                     # if user sends us a GIF, photo,video, or any other non-text item
                     if message['message'].get('attachments'):
@@ -47,14 +47,14 @@ def verify_fb_token(token_sent):
 
 # chooses a random message to send to the user
 def get_message(message):
-    responses = ["We are open 7 days a week from 10am to 6pm.", "We are located at the downtown mall in Charlottesville, VA", "Thank you so much for your time, we hope you have a great day.", "Someone will be in touch with you soon. Thank you for your interest in Cafeline!"]
-    return random.choice(responses)
-    #if "hours" in message or "open" in message or "time" in message or "when" in message:
-            #return ("We are open 7 days a week from 10am-6pm.")
-        #elif "location" in message or "where" in message:
-           # return ("We are located on the downtown mall in Charlottesville, VA.")
-        #else:
-            #return ("One will be in touch soon! Thanks for your interest in Cafeline")
+    #responses = ["We are open 7 days a week from 10am to 6pm.", "We are located at the downtown mall in Charlottesville, VA", "Thank you so much for your time, we hope you have a great day.", "Someone will be in touch with you soon. Thank you for your interest in Cafeline!"]
+    #return random.choice(responses)
+    if "hours" in message or "open" in message or "time" in message or "when" in message:
+        return ("We are open 7 days a week from 10am-6pm.")
+    elif "location" in message or "where" in message:
+        return ("We are located on the downtown mall in Charlottesville, VA.")
+    else:
+        return ("One will be in touch soon! Thanks for your interest in Cafeline")
 
 def get_nontext_message():
     sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
