@@ -48,7 +48,7 @@ def verify_fb_token(token_sent):
 # chooses a random message to send to the user
 def get_message(message):
     for match in message:
-        if "hours" in message or "open" in message or "time" in message:
+        if "hours" in message or "open" in message or "time" in message or "when" in message:
             return ("We are open 7 days a week from 10am-6pm.")
         elif "location" in message or "where" in message:
             return ("We are located on the downtown mall in Charlottesville, VA.")
