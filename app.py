@@ -1,3 +1,5 @@
+#Kajal Sheth
+
 import random
 import os
 from flask import Flask, request
@@ -38,24 +40,27 @@ def receive_message():
 
 
 def verify_fb_token(token_sent):
-    # take token sent by facebook and verify it matches the verify token you sent
+    # take token sent by facebook and verify it matches the verify token we set up
     # if they match, allow the request, else return an error
     if token_sent == VERIFY_TOKEN:
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
 
 
-# chooses a random message to send to the user
+#based on the user's input/question, it will return an automated message
+#if the user's input doesn't contain a keyword, then it will give the automated message that someone will be in contact with them soon
 def get_message(message):
-    #responses = ["We are open 7 days a week from 10am to 6pm.", "We are located at the downtown mall in Charlottesville, VA", "Thank you so much for your time, we hope you have a great day.", "Someone will be in touch with you soon. Thank you for your interest in Cafeline!"]
-    #return random.choice(responses)
     if "hours" in message or "open" in message or "time" in message or "when" in message:
         return ("We are open 7 days a week from 10am-6pm.")
     elif "location" in message or "where" in message:
         return ("We are located on the downtown mall in Charlottesville, VA.")
     else:
-        return ("One will be in touch soon! Thanks for your interest in Cafeline")
+        return ("Someone will be in touch soon! Thanks for your interest in Cafeline")
+    #responses = ["We are open 7 days a week from 10am to 6pm.", "We are located at the downtown mall in Charlottesville, VA", "Thank you so much for your time, we hope you have a great day.", "Someone will be in touch with you soon. Thank you for your interest in Cafeline!"]
+    #return random.choice(responses)
 
+
+#random responses if the messasge is an attachment instead of text
 def get_nontext_message():
     sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
     return random.choice(sample_responses)
